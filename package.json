@@ -1,5 +1,5 @@
 {
-  "name": "SEOshop-imageExport",
+  "name": "SEOshop-Image-Export",
   "version": "1.0.0",
   "description": "Export product images based on product variants",
   "main": "index.js",
