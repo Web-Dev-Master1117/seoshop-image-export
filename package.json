@@ -1,7 +1,7 @@
 {
-  "name": "SEOshop-imageimport",
+  "name": "SEOshop-imageExport",
   "version": "1.0.0",
-  "description": "Read images based on product variants",
+  "description": "Export product images based on product variants",
   "main": "index.js",
   "author": "Tim Neutkens",
   "license": "ISC",

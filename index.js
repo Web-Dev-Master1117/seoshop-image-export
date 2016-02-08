@@ -31,8 +31,9 @@ createGetRequest('/variants.json')
                     })
                 })
                 .then(function(images) {
-                    images.forEach(function(image) {
-                        var imageFileStream = fs.createWriteStream(process.env.OUTPUTDIRECTORY + variant.productId + '.jpg');
+                    images.forEach(function(image, index) {
+                        const filename = process.env.OUTPUTDIRECTORY + '/' + variant.productId + '-' + index + '.jpg';
+                        const imageFileStream = fs.createWriteStream(filename);
                         request.get(image).then(function(res) {
                             imageFileStream.end(res.body, function() {
                                 console.log('Written: ' + variant.productId);
