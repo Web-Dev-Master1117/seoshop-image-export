@@ -32,7 +32,7 @@ createGetRequest('/variants.json')
                 })
                 .then(function(images) {
                     images.forEach(function(image) {
-                        var imageFileStream = fs.createWriteStream('/Users/timneutkens/desktop/seoshopimages/' + variant.productId + '.jpg');
+                        var imageFileStream = fs.createWriteStream(process.env.OUTPUTDIRECTORY + variant.productId + '.jpg');
                         request.get(image).then(function(res) {
                             imageFileStream.end(res.body, function() {
                                 console.log('Written: ' + variant.productId);

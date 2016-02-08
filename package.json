@@ -1,11 +1,8 @@
 {
-  "name": "menga",
+  "name": "SEOshop-imageimport",
   "version": "1.0.0",
-  "description": "",
+  "description": "Read images based on product variants",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Tim Neutkens",
   "license": "ISC",
   "dependencies": {
