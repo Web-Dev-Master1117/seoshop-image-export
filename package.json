@@ -4,7 +4,7 @@
   "description": "Export product images based on product variants",
   "main": "index.js",
   "author": "Tim Neutkens",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bluebird": "^3.2.2",
     "superagent": "^1.7.2",
