@@ -62,9 +62,7 @@ createGetRequest('/variants.json')
                                         if(err || stats.size === 0) {
                                             resolve();
                                         } else {
-                                            reject({
-                                                message: 'File already exists'
-                                            });
+                                            reject({ message: 'File already exists' });
                                         }
                                     });
                                 }
@@ -78,7 +76,7 @@ createGetRequest('/variants.json')
                             }).catch(catchErrors);
 
                         })
-                    }).catch(catchErrors)
+                    })
             });
         });
     }).catch(catchErrors);
