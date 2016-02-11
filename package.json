@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.2.2",
+    "directory-size": "^0.1.1",
     "superagent": "^1.7.2",
     "superagent-prefix": "0.0.2",
     "superagent-promise": "^1.1.0"
