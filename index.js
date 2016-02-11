@@ -21,7 +21,7 @@ function catchErrors(err) {
 
 createGetRequest('/variants.json')
     .query({ limit: 250 })
-    .query({ page: 1 })
+    .query({ page: 4 })
     .then(function parseVariants(result) {
         return result.body.variants.map(function createVariantObject(element) {
             return {
@@ -76,7 +76,7 @@ createGetRequest('/variants.json')
                             }).catch(catchErrors);
 
                         })
-                    })
+                    }).catch(catchErrors);
             });
         });
     }).catch(catchErrors);
