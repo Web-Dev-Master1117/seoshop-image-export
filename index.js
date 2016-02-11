@@ -31,13 +31,13 @@ createGetRequest('/variants.json')
             }
         })
     })
-    .then(function(variants) {
-        variants.forEach(function(variant) {
+    .then(function imageImporter(variants) {
+        variants.forEach(function loopVariants(variant) {
             const directory = process.env.OUTPUTDIRECTORY + '/' + variant.productId + '/';
             new Promise(
-                function(resolve) {
-                    fs.mkdir(directory, function() {
-                        directorySize(directory).then(function(size) {
+                function createDirectory(resolve) {
+                    fs.mkdir(directory, function lookupDirectorySize() {
+                        directorySize(directory).then(function validateDirectorySize(size) {
                             if(size === 0) {
                                 resolve();
                             }
