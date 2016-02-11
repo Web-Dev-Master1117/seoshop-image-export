@@ -15,6 +15,10 @@ function createGetRequest(path) {
         .set('Accept', 'application/json')
 }
 
+function catchErrors(err) {
+    console.log('Something went wrong: ', err.message);
+}
+
 createGetRequest('/variants.json')
     .query({ limit: 250 })
     .query({ page: 1 })
@@ -70,20 +74,11 @@ createGetRequest('/variants.json')
                                     imageFileStream.end(res.body, function() {
                                         console.log('Written: ' + variant.productId)
                                     })
-                                }).catch(function(err) {
-                                    console.log('Error gettings image data: ', err.message)
-                                });
-                            }).catch(function(err) {
-                                console.log('Error occured', err)
-                            });
+                                }).catch(catchErrors);
+                            }).catch(catchErrors);
 
                         })
-                    }).catch(function(err) {
-                        console.log('Something went wrong requesting images: ', err.message);
-                    })
+                    }).catch(catchErrors)
             });
         });
-    })
-    .catch(function catchErrors(err) {
-        console.log('Something went wrong: ', err.message);
-    });
+    }).catch(catchErrors);
