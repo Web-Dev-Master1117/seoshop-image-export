@@ -14,8 +14,6 @@
     "directory-size": "^0.1.1",
     "seoshop-api": "^0.1.0",
     "superagent": "^1.7.2",
-    "superagent-prefix": "0.0.2",
-    "superagent-promise": "^1.1.0",
-    "superagent-suffix": "^0.1.0"
+    "superagent-promise": "^1.1.0"
   }
 }

@@ -1,10 +1,9 @@
 'use strict';
 var Promise = Promise || require("bluebird");
 const request = require('superagent-promise')(require('superagent'), Promise);
-const prefix = require('superagent-prefix');
-const suffix = require('superagent-suffix');
-const directorySize = require('directory-size');
+
 const fs = require('fs');
+const directorySize = require('directory-size');
 
 const SEOshopApiClient = require('seoshop-api');
 const SEOshopClient = new SEOshopApiClient(process.env.SEOSHOPAPIKEY, process.env.SEOSHOPAPISECRET);
