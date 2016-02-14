@@ -6,19 +6,9 @@ const suffix = require('superagent-suffix');
 const directorySize = require('directory-size');
 const fs = require('fs');
 
-/**
- * Create a get request to seoshop
- * @param path
- * @returns {Request}
- */
-function createGetRequest(path) {
-    return request
-        .get('/' + path)
-        .use(prefix('https://api.webshopapp.com/nl'))
-        .use(suffix('.json'))
-        .auth(process.env.SEOSHOAPIKEY, process.env.SEOSHOPAPISECRET)
-        .set('Accept', 'application/json');
-}
+const SEOshopApiClient = require('seoshop-api');
+const SEOshopClient = new SEOshopApiClient(process.env.SEOSHOPAPIKEY, process.env.SEOSHOPAPISECRET);
+const SEOshopRequest = SEOshopClient.baseRequest('nl');
 
 /**
  * Catch promise errors / rejects
@@ -32,7 +22,7 @@ function catchErrors(errorName) {
 }
 
 // Request variants
-createGetRequest('variants')
+SEOshopRequest.get('variants')
     .query({ limit: 250 })
     .query({ page: 1 })
     .then(function parseVariants(result) {
@@ -64,7 +54,7 @@ createGetRequest('variants')
                 }
             ).then(function(directory) {
                 // Request images for product
-                createGetRequest('products/' + variant.productId + '/images')
+                SEOshopRequest.get('products/' + variant.productId + '/images')
                     .query({ limit: 250 })
                     .then(function parseRequest(res) {
                         return res.body.productImages.map(function createImageObject(element) {
