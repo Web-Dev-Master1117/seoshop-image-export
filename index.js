@@ -23,7 +23,7 @@ function catchErrors(errorName) {
 // Request variants
 SEOshopRequest.get('variants')
     .query({ limit: 250 })
-    .query({ page: 1 })
+    .query({ page: 3 })
     .then(function parseVariants(result) {
         return result.body.variants.map(function createVariantObject(element) {
             return {
@@ -39,7 +39,7 @@ SEOshopRequest.get('variants')
             new Promise(
                 function createDirectory(resolve) {
                     // Create directory path from env variable
-                    const directory = process.env.OUTPUTDIRECTORY + '/' + variant.productId + '/';
+                    const directory = process.env.OUTPUTDIRECTORY + '/' + variant.variantEan + '/';
 
                     // Create directory if it doesn't exist
                     fs.mkdir(directory, function lookupDirectorySize() {
